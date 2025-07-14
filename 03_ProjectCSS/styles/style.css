@@ -1,10 +1,19 @@
-body {
-    font-family: 'Raleway', sans-serif;
-
-    margin: 0;
-    padding: 20px;
+/* Reset & Global */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography */
 h2 {
     color: #3C5BA9;
 }
@@ -13,11 +22,19 @@ h3 {
     color: #4E3D74;
 }
 
+/* Navigation */
+nav {
+    background-color: #3C5BA9;
+    padding: 5px;
+
+    display: flex;
+    justify-content: left;
+}
+
 nav a {
     font-size: 18px;
     font-weight: 400;
     text-decoration: none;
-
     color: #F3F6FB;
 }
 
@@ -28,52 +45,114 @@ nav a:hover {
 nav li {
     display: inline;
     list-style-type: none;
-    margin-right: 30px;
+    margin-right: 50px;
 }
 
-nav {
+nav ul {
+    position: relative;
+    padding: 0;
+}
+
+.dropMembers {
+    position: relative;
+}
+
+.dropContent {
+    display: none;
+    position: absolute;
     background-color: #3C5BA9;
-    padding: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    list-style: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    left: 50%;
+    transform: translateX(-50%);
 }
 
+.dropContent  li {
+    display: block;
+    margin: 5px 0;
+  }
+  
+.dropContent  a {
+    color: #F3F6FB;
+    font-size: 16px;
+    text-decoration: none;
+}
+  
+.dropMembers:hover .dropContent  {
+    display: block;
+}
+
+/* Layout */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+#content {
+    flex: 3;
+}
+
+header {
+    display: inline;
+  }
+
+aside {
+    flex: 1;
+}
+
+@media screen and (max-width: 1000px) {
+    #content, aside {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+/* Sections */
+.about,
+.members {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+/* Header */
+.main-header {
+    background-color: #3C5BA9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+  
+.logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #F3F6FB;
+}
+
+/* Profile Image (in aside) */
 .profile figure {
     text-align: center;
 }
 
-.about {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) ;
-    border-radius: 3px;
-
-    /* biar tampilannya ga sempit */
-    padding: 15px;
-    margin-top: 15px;
-}
-
-.members {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) ;
-    border-radius: 3px;
-
-    /* biar tampilannya ga sempit */
-    padding: 15px;
-    margin-top: 15px;
-}
-
-.judul {
-    font-size: medium;
-    padding: 30px;
-    background-color: #3C5BA9;
-    text-align: center;
-    color: #F3F6FB;
-}
-
+/* Optional image styling */
 /* .membersImg {
     width: 100%;
     max-height: 400px;
     object-fit: cover;
     object-position: center;
-
 } */
 
+/* Footer */
 footer {
     padding: 20px;
     color: #F3F6FB;
